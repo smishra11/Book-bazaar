@@ -7,10 +7,6 @@ import {
   Box,
   Button,
   Paper,
-  Rating,
-  IconButton,
-  useTheme,
-  useMediaQuery,
   Card,
   Avatar,
 } from "@mui/material";
@@ -426,7 +422,7 @@ function Home() {
       <Box sx={{ py: 10 }}>
         <Container maxWidth="xl">
           <Typography align="center" variant="h5" sx={{ fontWeight: 700, mb: 3 }}>
-            Featured Auther
+            Featured Authors
           </Typography>
           <Card
             elevation={0}

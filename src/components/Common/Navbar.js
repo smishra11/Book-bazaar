@@ -117,7 +117,7 @@ export default function SearchAppBar() {
           </Tooltip>
           <Tooltip title="Cart">
             <IconButton>
-              <Badge badgeContent={5} color="error">
+              <Badge badgeContent={0} color="error">
                 <ShoppingCartOutlinedIcon fontSize="small" sx={{ color: "white" }} />
               </Badge>
             </IconButton>

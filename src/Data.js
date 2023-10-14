@@ -24,14 +24,14 @@ export const sampleData = [
       },
       {
         id: uuidv4(),
-        user: null,
+        user: "Unknown",
         rating: 2,
         comment:
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique sed eligendi ex, quos voluptate facere soluta dolorem officiis nobis necessitatibus cupiditate iure nisi, sapiente quo neque sint est doloremque consequuntur.",
       },
       {
         id: uuidv4(),
-        user: null,
+        user: "jasmine",
         rating: 4,
         comment: "Nice book",
       },

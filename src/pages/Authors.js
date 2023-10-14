@@ -46,6 +46,15 @@ function Authors() {
     setFilteredData(filtered);
   }, [clickedAuthor]);
 
+  const authorsData = [
+    { name: "Harris J. Blake", img: avatar1 },
+    { name: "Author 1", img: avatar2 },
+    { name: "Author 2", img: avatar3 },
+    { name: "Author 3", img: avatar4 },
+    { name: "Author 4", img: avatar5 },
+    { name: "Author 5", img: avatar6 },
+  ];
+
   return (
     <>
       <Navbar />
@@ -62,7 +71,7 @@ function Authors() {
 
           <Box sx={{ pb: 10 }}>
             <Typography align="center" variant="h5" sx={{ fontWeight: 700, mb: 3 }}>
-              Featured Auther
+              Featured Authors
             </Typography>
             <Card
               elevation={0}
@@ -75,183 +84,38 @@ function Authors() {
               }}
             >
               <Grid container spacing={3} sx={{ height: "100%" }}>
-                <Grid
-                  item
-                  xs={12}
-                  sm={4}
-                  md={3}
-                  lg={2}
-                  sx={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    height: "100%",
-                    flexDirection: "column",
-                  }}
-                >
-                  <Avatar
-                    alt="Harris J. Blake"
-                    src={avatar1}
+                {authorsData.map((data) => (
+                  <Grid
+                    item
+                    xs={12}
+                    sm={4}
+                    md={3}
+                    lg={2}
                     sx={{
-                      width: clickedAuthor === "Harris J. Blake" ? 114 : 120,
-                      height: clickedAuthor === "Harris J. Blake" ? 114 : 120,
-                      cursor: "pointer",
-                      border:
-                        clickedAuthor === "Harris J. Blake" ? "3px solid black" : "none",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      height: "100%",
+                      flexDirection: "column",
                     }}
-                    onClick={() =>
-                      setClickedAuthor(
-                        clickedAuthor !== "Harris J. Blake" ? "Harris J. Blake" : "none"
-                      )
-                    }
-                  />
-                  <Typography sx={{ color: "white", mt: 1 }}>Harris J. Blake</Typography>
-                </Grid>
-                <Grid
-                  item
-                  xs={12}
-                  sm={4}
-                  md={3}
-                  lg={2}
-                  sx={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    height: "100%",
-                    flexDirection: "column",
-                  }}
-                >
-                  <Avatar
-                    alt="Author 1"
-                    src={avatar2}
-                    sx={{
-                      width: clickedAuthor === "Author 1" ? 114 : 120,
-                      height: clickedAuthor === "Author 1" ? 114 : 120,
-                      cursor: "pointer",
-                      border: clickedAuthor === "Author 1" ? "3px solid black" : "none",
-                    }}
-                    onClick={() =>
-                      setClickedAuthor(clickedAuthor !== "Author 1" ? "Author 1" : "none")
-                    }
-                  />
-                  <Typography sx={{ color: "white", mt: 1 }}>Author 1</Typography>
-                </Grid>
-                <Grid
-                  item
-                  xs={12}
-                  sm={4}
-                  md={3}
-                  lg={2}
-                  sx={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    height: "100%",
-                    flexDirection: "column",
-                  }}
-                >
-                  <Avatar
-                    alt="Author 2"
-                    src={avatar3}
-                    sx={{
-                      width: clickedAuthor === "Author 2" ? 114 : 120,
-                      height: clickedAuthor === "Author 2" ? 114 : 120,
-                      cursor: "pointer",
-                      border: clickedAuthor === "Author 2" ? "3px solid black" : "none",
-                    }}
-                    onClick={() =>
-                      setClickedAuthor(clickedAuthor !== "Author 2" ? "Author 2" : "none")
-                    }
-                  />
-                  <Typography sx={{ color: "white", mt: 1 }}>Author 2</Typography>
-                </Grid>
-                <Grid
-                  item
-                  xs={12}
-                  sm={4}
-                  md={3}
-                  lg={2}
-                  sx={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    height: "100%",
-                    flexDirection: "column",
-                  }}
-                >
-                  <Avatar
-                    alt="Autho 3"
-                    src={avatar4}
-                    sx={{
-                      width: clickedAuthor === "Author 3" ? 114 : 120,
-                      height: clickedAuthor === "Author 3" ? 114 : 120,
-                      cursor: "pointer",
-                      border: clickedAuthor === "Author 3" ? "3px solid black" : "none",
-                    }}
-                    onClick={() =>
-                      setClickedAuthor(clickedAuthor !== "Author 3" ? "Author 3" : "none")
-                    }
-                  />
-                  <Typography sx={{ color: "white", mt: 1 }}>Author 3</Typography>
-                </Grid>
-                <Grid
-                  item
-                  xs={12}
-                  sm={4}
-                  md={3}
-                  lg={2}
-                  sx={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    height: "100%",
-                    flexDirection: "column",
-                  }}
-                >
-                  <Avatar
-                    alt="Author 4"
-                    src={avatar5}
-                    sx={{
-                      width: clickedAuthor === "Author 4" ? 114 : 120,
-                      height: clickedAuthor === "Author 4" ? 114 : 120,
-                      cursor: "pointer",
-                      border: clickedAuthor === "Author 4" ? "3px solid black" : "none",
-                    }}
-                    onClick={() =>
-                      setClickedAuthor(clickedAuthor !== "Author 4" ? "Author 4" : "none")
-                    }
-                  />
-                  <Typography sx={{ color: "white", mt: 1 }}>Author 4</Typography>
-                </Grid>
-                <Grid
-                  item
-                  xs={12}
-                  sm={4}
-                  md={3}
-                  lg={2}
-                  sx={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    height: "100%",
-                    flexDirection: "column",
-                  }}
-                >
-                  <Avatar
-                    alt="Author 5"
-                    src={avatar6}
-                    sx={{
-                      width: clickedAuthor === "Author 5" ? 114 : 120,
-                      height: clickedAuthor === "Author 5" ? 114 : 120,
-                      cursor: "pointer",
-                      border: clickedAuthor === "Author 5" ? "3px solid black" : "none",
-                    }}
-                    onClick={() =>
-                      setClickedAuthor(clickedAuthor !== "Author 5" ? "Author 5" : "none")
-                    }
-                  />
-                  <Typography sx={{ color: "white", mt: 1 }}>Author 5</Typography>
-                </Grid>
+                    key={data.name}
+                  >
+                    <Avatar
+                      alt={data.name}
+                      src={data.img}
+                      sx={{
+                        width: clickedAuthor === data.name ? 114 : 120,
+                        height: clickedAuthor === data.name ? 114 : 120,
+                        cursor: "pointer",
+                        border: clickedAuthor === data.name ? "3px solid black" : "none",
+                      }}
+                      onClick={() =>
+                        setClickedAuthor(clickedAuthor !== data.name ? data.name : "none")
+                      }
+                    />
+                    <Typography sx={{ color: "white", mt: 1 }}>{data.name}</Typography>
+                  </Grid>
+                ))}
               </Grid>
             </Card>
           </Box>
