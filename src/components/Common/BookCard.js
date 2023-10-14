@@ -1,8 +1,8 @@
 import React from "react";
 import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
-import { Box, Button, Paper, Rating, Typography } from "@mui/material";
+import { Box, Button, Chip, Paper, Rating, Typography } from "@mui/material";
 
-function BookCard({ data }) {
+function BookCard({ data, showDiscount }) {
   return (
     <Paper
       sx={{
@@ -19,9 +19,18 @@ function BookCard({ data }) {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
+          position: "relative",
         }}
       >
         <img src={data.image} alt={data.name} width="55%" height="90%" />
+        {showDiscount ? (
+          <Chip
+            label={`${Math.floor(Math.random() * 16) + 10}% off`}
+            size="small"
+            sx={{ position: "absolute", top: 0, left: 0 }}
+            color="error"
+          />
+        ) : null}
       </Box>
       <Box
         sx={{

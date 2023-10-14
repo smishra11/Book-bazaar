@@ -16,25 +16,36 @@ import BookCard from "../components/Common/BookCard";
 import SharePage from "../components/Common/SharePage";
 
 function Books() {
-  const [value, setValue] = useState("All");
+  const [value, setValue] = useState({ label: "All", value: "All" });
+  const [filteredData, setFilteredData] = useState(sampleData);
+
   const options = [
-    { label: "All" },
-    { label: "Harris J. Blake" },
-    { label: "Author 1" },
-    { label: "Author 1" },
-    { label: "Author 2" },
-    { label: "Author 3" },
-    { label: "Author 4" },
-    { label: "Author 5" },
-    { label: "Author 6" },
-    { label: "Author 7" },
-    { label: "Author 8" },
-    { label: "Author 9" },
-    { label: "Author 10" },
-    { label: "Author 11" },
-    { label: "Author 12" },
-    { label: "Author 13" },
+    { label: "All", value: "All" },
+    { label: "Harris J. Blake", value: "Harris J. Blake" },
+    { label: "Author 1", value: "Author 1" },
+    { label: "Author 1", value: "Author 2" },
+    { label: "Author 2", value: "Author 3" },
+    { label: "Author 3", value: "Author 4" },
+    { label: "Author 4", value: "Author 5" },
+    { label: "Author 5", value: "Author 6" },
+    { label: "Author 6", value: "Author 7" },
+    { label: "Author 7", value: "Author 8" },
+    { label: "Author 8", value: "Author 8" },
+    { label: "Author 9", value: "Author 9" },
+    { label: "Author 10", value: "Author 10" },
+    { label: "Author 11", value: "Author 11" },
+    { label: "Author 12", value: "Author 12" },
+    { label: "Author 13", value: "Author 13" },
   ];
+
+  const handleChange = (e, val) => {
+    if (val.value === "All") {
+      setFilteredData(sampleData);
+    } else {
+      let filtered = sampleData.filter((data) => data.author === val.value);
+      setFilteredData(filtered);
+    }
+  };
 
   return (
     <>
@@ -50,16 +61,18 @@ function Books() {
             </Breadcrumbs>
             <Autocomplete
               disablePortal
+              disableClearable
               options={options}
-              defaultValue={value}
+              defaultValue={value.value}
               sx={{ width: 150, fontSize: 10 }}
               size="small"
               renderInput={(params) => <TextField {...params} label="Author" />}
+              onChange={handleChange}
             />
           </Box>
           <Grid container spacing={5}>
-            {sampleData.map((data) => (
-              <Grid item xs={12} sm={4} md={3} key={data.name}>
+            {filteredData.map((data) => (
+              <Grid item xs={12} sm={4} md={3} key={data.id}>
                 <BookCard data={data} />
               </Grid>
             ))}

@@ -352,7 +352,7 @@ function Home() {
             sx={{
               display: "flex",
               justifyContent: "space-between",
-              pt: 7,
+              pt: 10,
               pb: 3,
               alignItems: "center",
             }}
@@ -380,7 +380,7 @@ function Home() {
                 key={data.name}
                 sx={{ display: i <= 3 ? "block" : "none" }}
               >
-                <BookCard data={data} />
+                <BookCard data={data} showDiscount={true} />
               </Grid>
             ))}
           </Grid>
