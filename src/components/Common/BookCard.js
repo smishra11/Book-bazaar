@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
-import { Box, Button, Chip, Paper, Rating, Typography } from "@mui/material";
+import RemoveOutlinedIcon from "@mui/icons-material/RemoveOutlined";
+import { Box, Button, Chip, IconButton, Paper, Rating, Typography } from "@mui/material";
 import BookDetails from "./BookDetails";
 import moment from "moment";
 
@@ -8,6 +9,24 @@ function BookCard({ data, showDiscount }) {
   const [open, setOpen] = useState(false);
   const [clickedBook, setClickedBook] = useState(null);
   const [showDetailsButton, setShowDetailsButton] = useState(false);
+  const [count, setCount] = useState(0);
+
+  const handleAddToCart = (book) => {
+    let getData = JSON.parse(localStorage.getItem("cartItem") || "[]");
+    localStorage.setItem("cartItem", JSON.stringify([...getData, book]));
+    setCount(count + 1);
+  };
+
+  const decreaseCount = (book) => {
+    let getData = JSON.parse(localStorage.getItem("cartItem") || "[]");
+    let copyData = [...getData];
+    const index = copyData.findIndex((data) => {
+      return data.name === book.name;
+    });
+    copyData.splice(index, 1);
+    localStorage.setItem("cartItem", JSON.stringify(copyData));
+    setCount(count - 1);
+  };
 
   return (
     <>
@@ -107,10 +126,44 @@ function BookCard({ data, showDiscount }) {
                 ₹ 1199
               </span>
             </Typography>
-            <Button variant="outlined" size="small" sx={{ textTransform: "none" }}>
-              {/* <AddOutlinedIcon /> */}
-              Add to cart
-            </Button>
+            {JSON.parse(localStorage.getItem("cartItem") || "[]").filter(
+              (bookData) => bookData.name === data.name
+            ).length ? (
+              <Box sx={{ display: "flex", alignItems: "center" }}>
+                <IconButton
+                  size="small"
+                  sx={{ background: "#f5f5f5" }}
+                  onClick={() => decreaseCount(data)}
+                >
+                  <RemoveOutlinedIcon fontSize="small" />
+                </IconButton>
+                <Typography variant="body2" sx={{ mx: 1 }}>
+                  <b>
+                    {
+                      JSON.parse(localStorage.getItem("cartItem") || "[]").filter(
+                        (bookData) => bookData.name === data.name
+                      ).length
+                    }
+                  </b>
+                </Typography>
+                <IconButton
+                  size="small"
+                  sx={{ background: "#f5f5f5" }}
+                  onClick={() => handleAddToCart(data)}
+                >
+                  <AddOutlinedIcon fontSize="small" />
+                </IconButton>
+              </Box>
+            ) : (
+              <Button
+                variant="outlined"
+                size="small"
+                sx={{ textTransform: "none" }}
+                onClick={() => handleAddToCart(data)}
+              >
+                Add to cart
+              </Button>
+            )}
           </Box>
         </Box>
       </Paper>

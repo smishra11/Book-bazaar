@@ -1,4 +1,3 @@
-import { v4 as uuidv4 } from "uuid";
 import moment from "moment/moment";
 import book1 from "./Assets/bookImage1.avif";
 import book2 from "./Assets/bookImage2.jpg";
@@ -6,7 +5,7 @@ import book3 from "./Assets/bookImage3.jpg";
 
 export const sampleData = [
   {
-    id: uuidv4(),
+    id: 111,
     name: "Console Wars",
     title: "Console Wars: Sega, Nintendo, and the Battle that Defined a Generation",
     author: "Harris J. Blake",
@@ -16,34 +15,34 @@ export const sampleData = [
     release_date: moment().subtract(5, "d").format(),
     reviews: [
       {
-        id: uuidv4(),
+        id: 1126,
         user: "john Doe",
         rating: 4,
         comment:
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas sed molestiae culpa, modi minus impedit. Alias praesentium fuga molestias quis?",
       },
       {
-        id: uuidv4(),
+        id: 1127,
         user: "Unknown",
         rating: 2,
         comment:
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique sed eligendi ex, quos voluptate facere soluta dolorem officiis nobis necessitatibus cupiditate iure nisi, sapiente quo neque sint est doloremque consequuntur.",
       },
       {
-        id: uuidv4(),
+        id: 1128,
         user: "jasmine",
         rating: 4,
         comment: "Nice book",
       },
       {
-        id: uuidv4(),
+        id: 1129,
         user: "kent_dodds",
         rating: 5,
         comment:
           "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis, sunt minima officia molestias ipsa quisquam?",
       },
       {
-        id: uuidv4(),
+        id: 1130,
         user: "kent_dodds",
         rating: 3,
         comment:
@@ -54,7 +53,7 @@ export const sampleData = [
       "Following the success of The Accidental Billionaires and Moneyball comes Console Wars a mesmerizing, behind-the-scenes business thriller that chronicles how Sega, a small, scrappy gaming company led by an unlikely visionary and a team of rebels, took on the juggernaut Nintendo and revolutionized the video game industry. In 1990, Nintendo had a virtual monopoly on the video game industry. Sega, on the other hand, was just a faltering arcade company with big aspirations and even bigger personalities. But that would all change with the arrival of Tom Kalinske, a man who knew nothing about videogames and everything about fighting uphill battles. His unconventional tactics, combined with the blood, sweat and bold ideas of his renegade employees, transformed Sega and eventually led to a ruthless David-and-Goliath showdown with rival Nintendo. The battle was vicious, relentless, and highly profitable, eventually sparking a global corporate war that would be fought on several fronts: from living rooms and schoolyards to boardrooms and Congress. It was a once-in-a-lifetime, no-holds-barred conflict that pitted brother against brother, kid against adult, Sonic against Mario, and the US against Japan. Based on over two hundred interviews with former Sega and Nintendo employees, Console Wars is the underdog tale of how Kalinske miraculously turned an industry punchline into a market leader. Its the story of how a humble family man, with an extraordinary imagination and a gift for turning problems into competitive advantages, inspired a team of underdogs to slay a giant and, as a result, birth a $60 billion dollar industry.",
   },
   {
-    id: uuidv4(),
+    id: 112,
     name: "Book 2",
     title: "Sample Book 2",
     author: "Author 2",
@@ -63,13 +62,13 @@ export const sampleData = [
     release_date: moment().subtract(10, "d").format(),
     reviews: [
       {
-        id: uuidv4(),
+        id: 1124,
         user: "User 1",
         rating: 4,
         comment: "A great read!",
       },
       {
-        id: uuidv4(),
+        id: 1125,
         user: "User 2",
         rating: 5,
         comment: "Couldn't put it down!",
@@ -78,7 +77,7 @@ export const sampleData = [
     description: "This is a sample book description for Book 2.",
   },
   {
-    id: uuidv4(),
+    id: 113,
     name: "Book 3",
     title: "Sample Book 3",
     author: "Author 3",
@@ -87,7 +86,7 @@ export const sampleData = [
     release_date: moment().subtract(20, "d").format(),
     reviews: [
       {
-        id: uuidv4(),
+        id: 1123,
         user: "User 3",
         rating: 3,
         comment: "Decent book.",
@@ -96,7 +95,7 @@ export const sampleData = [
     description: "Another sample book description for Book 3.",
   },
   {
-    id: uuidv4(),
+    id: 114,
     name: "Book 4",
     title: "Sample Book 4",
     author: "Author 4",
@@ -105,13 +104,13 @@ export const sampleData = [
     release_date: moment().subtract(5, "d").format(),
     reviews: [
       {
-        id: uuidv4(),
+        id: 1121,
         user: "User 4",
         rating: 5,
         comment: "Loved it!",
       },
       {
-        id: uuidv4(),
+        id: 1122,
         user: "User 5",
         rating: 4,
         comment: "A must-read.",
@@ -120,7 +119,7 @@ export const sampleData = [
     description: "Sample book description for Book 4.",
   },
   {
-    id: uuidv4(),
+    id: 115,
     name: "Book 5",
     title: "Sample Book 5",
     author: "Author 5",
@@ -131,7 +130,7 @@ export const sampleData = [
     description: "Yet another sample book description for Book 5.",
   },
   {
-    id: uuidv4(),
+    id: 116,
     name: "Book 6",
     title: "Sample Book 6",
     author: "Author 6",
@@ -140,7 +139,7 @@ export const sampleData = [
     release_date: moment().subtract(5, "d").format(),
     reviews: [
       {
-        id: uuidv4(),
+        id: 1120,
         user: "User 6",
         rating: 4,
         comment: "Enjoyed every page!",
@@ -149,7 +148,7 @@ export const sampleData = [
     description: "Sample book description for Book 6.",
   },
   {
-    id: uuidv4(),
+    id: 117,
     name: "Book 7",
     title: "Sample Book 7",
     author: "Author 7",
@@ -160,7 +159,7 @@ export const sampleData = [
     description: "Another sample book description for Book 7.",
   },
   {
-    id: uuidv4(),
+    id: 159,
     name: "Book 8",
     title: "Sample Book 8",
     author: "Author 8",
@@ -169,7 +168,7 @@ export const sampleData = [
     release_date: moment().subtract(25, "d").format(),
     reviews: [
       {
-        id: uuidv4(),
+        id: 1119,
         user: "User 8",
         rating: 3,
         comment: "It was okay.",
@@ -178,7 +177,7 @@ export const sampleData = [
     description: "Sample book description for Book 8.",
   },
   {
-    id: uuidv4(),
+    id: 199,
     name: "Book 9",
     title: "Sample Book 9",
     author: "Author 9",
@@ -189,7 +188,7 @@ export const sampleData = [
     description: "Yet another sample book description for Book 9.",
   },
   {
-    id: uuidv4(),
+    id: 110,
     name: "Book 10",
     title: "Sample Book 10",
     author: "Author 10",
@@ -198,7 +197,7 @@ export const sampleData = [
     release_date: moment().subtract(10, "d").format(),
     reviews: [
       {
-        id: uuidv4(),
+        id: 1118,
         user: "User 10",
         rating: 5,
         comment: "A masterpiece!",
@@ -207,7 +206,7 @@ export const sampleData = [
     description: "This is a sample book description for Book 10.",
   },
   {
-    id: uuidv4(),
+    id: 1111,
     name: "Book 11",
     title: "Sample Book 11",
     author: "Author 11",
@@ -218,7 +217,7 @@ export const sampleData = [
     description: "Sample book description for Book 11.",
   },
   {
-    id: uuidv4(),
+    id: 1112,
     name: "Book 12",
     title: "Sample Book 12",
     author: "Author 12",
@@ -227,7 +226,7 @@ export const sampleData = [
     release_date: moment().subtract(12, "d").format(),
     reviews: [
       {
-        id: uuidv4(),
+        id: 1117,
         user: "User 12",
         rating: 4,
         comment: "A compelling read!",
@@ -236,7 +235,7 @@ export const sampleData = [
     description: "Another sample book description for Book 12.",
   },
   {
-    id: uuidv4(),
+    id: 1113,
     name: "Book 13",
     title: "Sample Book 13",
     author: "Author 1",
@@ -247,7 +246,7 @@ export const sampleData = [
     description: "Yet another sample book description for Book 13.",
   },
   {
-    id: uuidv4(),
+    id: 1114,
     name: "Book 14",
     title: "Sample Book 14",
     author: "Author 2",
@@ -256,13 +255,13 @@ export const sampleData = [
     release_date: moment().subtract(5, "d").format(),
     reviews: [
       {
-        id: uuidv4(),
+        id: 1116,
         user: "User 14",
         rating: 5,
         comment: "An excellent book!",
       },
       {
-        id: uuidv4(),
+        id: 1117,
         user: "User 15",
         rating: 4,
         comment: "Highly recommended.",
@@ -271,7 +270,7 @@ export const sampleData = [
     description: "Sample book description for Book 14.",
   },
   {
-    id: uuidv4(),
+    id: 139,
     name: "Book 15",
     title: "Sample Book 15",
     author: "Author 3",
@@ -280,7 +279,7 @@ export const sampleData = [
     release_date: moment().subtract(18, "d").format(),
     reviews: [
       {
-        id: uuidv4(),
+        id: 1115,
         user: "User 16",
         rating: 3,
         comment: "It was decent.",
@@ -289,7 +288,7 @@ export const sampleData = [
     description: "Another sample book description for Book 15.",
   },
   {
-    id: uuidv4(),
+    id: 1116,
     name: "Book 16",
     title: "Sample Book 16",
     author: "Author 4",
@@ -300,7 +299,7 @@ export const sampleData = [
     description: "Sample book description for Book 16.",
   },
   {
-    id: uuidv4(),
+    id: 187,
     name: "Book 17",
     title: "Sample Book 17",
     author: "Author 5",
@@ -309,7 +308,7 @@ export const sampleData = [
     release_date: moment().subtract(14, "d").format(),
     reviews: [
       {
-        id: uuidv4(),
+        id: 1114,
         user: "User 17",
         rating: 4,
         comment: "A captivating story!",
@@ -318,7 +317,7 @@ export const sampleData = [
     description: "Yet another sample book description for Book 17.",
   },
   {
-    id: uuidv4(),
+    id: 118,
     name: "Book 18",
     title: "Sample Book 18",
     author: "Author 6",
@@ -329,7 +328,7 @@ export const sampleData = [
     description: "This is a sample book description for Book 18.",
   },
   {
-    id: uuidv4(),
+    id: 119,
     name: "Book 19",
     title: "Sample Book 19",
     author: "Author 7",
@@ -340,7 +339,7 @@ export const sampleData = [
     description: "Another sample book description for Book 19.",
   },
   {
-    id: uuidv4(),
+    id: 120,
     name: "Book 20",
     title: "Sample Book 20",
     author: "Author 13",
@@ -351,7 +350,7 @@ export const sampleData = [
     description: "Sample book description for Book 20.",
   },
   {
-    id: uuidv4(),
+    id: 121,
     name: "Book 21",
     title: "Sample Book 21",
     author: "Author 8",
@@ -360,7 +359,7 @@ export const sampleData = [
     release_date: moment().subtract(5, "d").format(),
     reviews: [
       {
-        id: uuidv4(),
+        id: 1113,
         user: "User 21",
         rating: 5,
         comment: "Absolutely brilliant!",
@@ -369,7 +368,7 @@ export const sampleData = [
     description: "Yet another sample book description for Book 21.",
   },
   {
-    id: uuidv4(),
+    id: 122,
     name: "Book 22",
     title: "Sample Book 22",
     author: "Author 9",
@@ -378,7 +377,7 @@ export const sampleData = [
     release_date: moment().subtract(10, "d").format(),
     reviews: [
       {
-        id: uuidv4(),
+        id: 1112,
         user: "User 22",
         rating: 4,
         comment: "A must-read.",
@@ -387,7 +386,7 @@ export const sampleData = [
     description: "This is a sample book description for Book 22.",
   },
   {
-    id: uuidv4(),
+    id: 123,
     name: "Book 23",
     title: "Sample Book 23",
     author: "Author 10",
@@ -398,7 +397,7 @@ export const sampleData = [
     description: "Another sample book description for Book 23.",
   },
   {
-    id: uuidv4(),
+    id: 124,
     name: "Book 24",
     title: "Sample Book 24",
     author: "Author 11",
@@ -407,7 +406,7 @@ export const sampleData = [
     release_date: moment().subtract(16, "d").format(),
     reviews: [
       {
-        id: uuidv4(),
+        id: 1111,
         user: "User 24",
         rating: 3,
         comment: "It was okay.",
@@ -416,7 +415,7 @@ export const sampleData = [
     description: "Sample book description for Book 24.",
   },
   {
-    id: uuidv4(),
+    id: 125,
     name: "Book 25",
     title: "Sample Book 25",
     author: "Author 12",

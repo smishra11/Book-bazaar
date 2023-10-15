@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { styled, alpha } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -8,12 +8,13 @@ import Typography from "@mui/material/Typography";
 import InputBase from "@mui/material/InputBase";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
-import { Badge, Button, Divider, Tooltip } from "@mui/material";
+import { Badge, Button, Divider, Menu, MenuItem, Tooltip } from "@mui/material";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import Login from "./Login";
 import { useNavigate } from "react-router-dom";
 import Cart from "./Cart";
+import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -62,6 +63,18 @@ export default function SearchAppBar() {
   const [cartOpen, setCartOpen] = useState(false);
   const navigate = useNavigate();
 
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const menuOpen = Boolean(anchorEl);
+
+  const [uniqueCount, setUniqueCount] = useState(0);
+
+  let cartData = JSON.parse(localStorage.getItem("cartItem") || "[]");
+
+  useEffect(() => {
+    const unique = [...new Map(cartData.map((data) => [data.name, data])).values()];
+    setUniqueCount(unique.length);
+  }, [cartData]);
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" elevation={0}>
@@ -88,14 +101,13 @@ export default function SearchAppBar() {
             noWrap
             sx={{
               flexGrow: 1,
-              display: { xs: "none", sm: "block" },
               ml: 1,
               fontFamily: "'Pacifico', cursive",
             }}
           >
             Book Bazaar
           </Typography>
-          <Search>
+          <Search sx={{ display: { xs: "none", sm: "block" } }}>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
@@ -104,7 +116,7 @@ export default function SearchAppBar() {
               inputProps={{ "aria-label": "search" }}
             />
           </Search>
-          <Box>
+          <Box sx={{ display: { xs: "none", md: "block" } }}>
             <Button href="/books" sx={{ color: "white", textTransform: "none", mx: 1 }}>
               Books
             </Button>
@@ -119,12 +131,27 @@ export default function SearchAppBar() {
           </Tooltip>
           <Tooltip title="Cart">
             <IconButton onClick={() => setCartOpen(true)}>
-              <Badge badgeContent={0} color="error">
+              <Badge badgeContent={uniqueCount} color="error">
                 <ShoppingCartOutlinedIcon fontSize="small" sx={{ color: "white" }} />
               </Badge>
             </IconButton>
           </Tooltip>
+          <IconButton
+            sx={{ ml: 1, display: { xs: "block", md: "none" } }}
+            onClick={(event) => setAnchorEl(event.currentTarget)}
+          >
+            <MenuOutlinedIcon fontSize="small" sx={{ color: "white" }} />
+          </IconButton>
         </Toolbar>
+        <Menu
+          id="basic-menu"
+          anchorEl={anchorEl}
+          open={menuOpen}
+          onClose={() => setAnchorEl(null)}
+        >
+          <MenuItem onClick={() => navigate("/books")}>Books</MenuItem>
+          <MenuItem onClick={() => navigate("/authors")}>Authors</MenuItem>
+        </Menu>
       </AppBar>
       <Divider />
       <Login open={open} setOpen={setOpen} />
