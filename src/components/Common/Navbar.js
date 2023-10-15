@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from "react";
 import { styled, alpha } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -13,6 +13,7 @@ import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import Login from "./Login";
 import { useNavigate } from "react-router-dom";
+import Cart from "./Cart";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -57,7 +58,8 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function SearchAppBar() {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
+  const [cartOpen, setCartOpen] = useState(false);
   const navigate = useNavigate();
 
   return (
@@ -116,7 +118,7 @@ export default function SearchAppBar() {
             </IconButton>
           </Tooltip>
           <Tooltip title="Cart">
-            <IconButton>
+            <IconButton onClick={() => setCartOpen(true)}>
               <Badge badgeContent={0} color="error">
                 <ShoppingCartOutlinedIcon fontSize="small" sx={{ color: "white" }} />
               </Badge>
@@ -126,6 +128,7 @@ export default function SearchAppBar() {
       </AppBar>
       <Divider />
       <Login open={open} setOpen={setOpen} />
+      <Cart cartOpen={cartOpen} setCartOpen={setCartOpen} />
     </Box>
   );
 }
