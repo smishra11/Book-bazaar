@@ -103,8 +103,9 @@ function BookCard({ data, showDiscount }) {
                 ₹ 1199
               </span>
             </Typography>
-            <Button variant="outlined" size="small">
-              <AddOutlinedIcon />
+            <Button variant="outlined" size="small" sx={{ textTransform: "none" }}>
+              {/* <AddOutlinedIcon /> */}
+              Add to cart
             </Button>
           </Box>
         </Box>

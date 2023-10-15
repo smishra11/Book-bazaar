@@ -62,11 +62,11 @@ export default function Cart({ cartOpen, setCartOpen }) {
           ))}
         </Box>
         <Box sx={{ p: 2 }}>
-          <Button variant="contained" fullWidth>
+          <Button variant="contained" fullWidth sx={{ textTransform: "none" }}>
             Checkout Now
           </Button>
-          <Button variant="outlined" fullWidth sx={{ mt: 2 }}>
-            Checkout Now
+          <Button variant="outlined" fullWidth sx={{ mt: 2, textTransform: "none" }}>
+            View Cart
           </Button>
         </Box>
       </Box>
