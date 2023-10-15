@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
 import { Box, Button, Chip, Paper, Rating, Typography } from "@mui/material";
 import BookDetails from "./BookDetails";
+import moment from "moment";
 
 function BookCard({ data, showDiscount }) {
   const [open, setOpen] = useState(false);
@@ -82,6 +83,9 @@ function BookCard({ data, showDiscount }) {
         >
           <Typography sx={{ fontWeight: 600 }} variant="body2">
             {data.name}
+          </Typography>
+          <Typography variant="caption" color="textSecondary">
+            by {data.author} | {moment(data.release_date).format("LL")}
           </Typography>
           <Rating name="read-only" value={4} readOnly sx={{ py: 1 }} />
           <Box
