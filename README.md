@@ -1,4 +1,4 @@
-# Welcome to Cinibuzz
+# Welcome to Book bazaar
 ### `Demo` - https://kluster-bookbazaar.netlify.app/
 
 ## Run in Local
