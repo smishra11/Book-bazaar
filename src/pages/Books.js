@@ -18,6 +18,7 @@ import SharePage from "../components/Common/SharePage";
 function Books() {
   const [value, setValue] = useState({ label: "All", value: "All" });
   const [filteredData, setFilteredData] = useState(sampleData);
+  const [count, setCount] = useState(0);
 
   const options = [
     { label: "All", value: "All" },
@@ -49,7 +50,7 @@ function Books() {
 
   return (
     <>
-      <Navbar />
+      <Navbar count={count} setCount={setCount} />
       <Box sx={{ background: "#F6F9FC", pt: 5, pb: 10 }}>
         <Container maxWidth="xl">
           <Box sx={{ mb: 3, display: "flex", justifyContent: "space-between" }}>
@@ -73,7 +74,7 @@ function Books() {
           <Grid container spacing={5}>
             {filteredData.map((data) => (
               <Grid item xs={12} sm={4} md={3} key={data.id}>
-                <BookCard data={data} />
+                <BookCard data={data} count={count} setCount={setCount} />
               </Grid>
             ))}
           </Grid>

@@ -8,14 +8,15 @@ import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
 import RemoveOutlinedIcon from "@mui/icons-material/RemoveOutlined";
 
-export default function Cart({ cartOpen, setCartOpen }) {
+export default function Cart({ cartOpen, setCartOpen, count, setCount }) {
   const [uniqueItem, setUniqueItem] = useState(null);
+  // const [count, setCount] = useState(0);
 
   useEffect(() => {
     let cartData = JSON.parse(localStorage.getItem("cartItem") || "[]");
     const unique = [...new Map(cartData.map((data) => [data.name, data])).values()];
     setUniqueItem(unique);
-  }, [cartOpen]);
+  }, [cartOpen, count]);
 
   const getTotalPrice = () => {
     let cartData = JSON.parse(localStorage.getItem("cartItem") || "[]");
@@ -23,8 +24,6 @@ export default function Cart({ cartOpen, setCartOpen }) {
     cartData.map((data) => (total = total + data.price));
     return total;
   };
-
-  const [count, setCount] = useState(0);
 
   const handleAddToCart = (book) => {
     let getData = JSON.parse(localStorage.getItem("cartItem") || "[]");

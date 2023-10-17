@@ -5,11 +5,10 @@ import { Box, Button, Chip, IconButton, Paper, Rating, Typography } from "@mui/m
 import BookDetails from "./BookDetails";
 import moment from "moment";
 
-function BookCard({ data, showDiscount }) {
+function BookCard({ data, showDiscount, count, setCount }) {
   const [open, setOpen] = useState(false);
   const [clickedBook, setClickedBook] = useState(null);
   const [showDetailsButton, setShowDetailsButton] = useState(false);
-  const [count, setCount] = useState(0);
 
   const handleAddToCart = (book) => {
     let getData = JSON.parse(localStorage.getItem("cartItem") || "[]");

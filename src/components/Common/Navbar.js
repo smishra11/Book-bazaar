@@ -58,7 +58,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function SearchAppBar() {
+export default function SearchAppBar({ count, setCount }) {
   const [open, setOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
   const navigate = useNavigate();
@@ -68,12 +68,11 @@ export default function SearchAppBar() {
 
   const [uniqueCount, setUniqueCount] = useState(0);
 
-  let cartData = JSON.parse(localStorage.getItem("cartItem") || "[]");
-
   useEffect(() => {
+    let cartData = JSON.parse(localStorage.getItem("cartItem") || "[]");
     const unique = [...new Map(cartData.map((data) => [data.name, data])).values()];
     setUniqueCount(unique.length);
-  }, [cartData]);
+  }, [count]);
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -88,25 +87,25 @@ export default function SearchAppBar() {
           >
             <MenuIcon />
           </IconButton> */}
-          <img
-            src="/favicon.webp"
-            alt=""
-            height={45}
-            width={45}
-            style={{ cursor: "pointer" }}
-            onClick={() => navigate("/")}
-          />
-          <Typography
-            variant="h5"
-            noWrap
-            sx={{
-              flexGrow: 1,
-              ml: 1,
-              fontFamily: "'Pacifico', cursive",
-            }}
-          >
-            Book Bazaar
-          </Typography>
+          <Box sx={{ flexGrow: 1 }}>
+            <Box
+              sx={{ display: "inline-block", cursor: "pointer" }}
+              onClick={() => navigate("/")}
+            >
+              <Typography
+                variant="h5"
+                noWrap
+                sx={{
+                  fontFamily: "'Pacifico', cursive",
+                  display: "flex",
+                  alignItems: "center",
+                }}
+              >
+                <img src="/favicon.webp" alt="" height={45} width={45} />
+                Book Bazaar
+              </Typography>
+            </Box>
+          </Box>
           <Search sx={{ display: { xs: "none", sm: "block" } }}>
             <SearchIconWrapper>
               <SearchIcon />
@@ -155,7 +154,12 @@ export default function SearchAppBar() {
       </AppBar>
       <Divider />
       <Login open={open} setOpen={setOpen} />
-      <Cart cartOpen={cartOpen} setCartOpen={setCartOpen} />
+      <Cart
+        cartOpen={cartOpen}
+        setCartOpen={setCartOpen}
+        count={count}
+        setCount={setCount}
+      />
     </Box>
   );
 }

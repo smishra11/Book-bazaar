@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../components/Common/Navbar";
 import {
   Typography,
@@ -35,9 +35,11 @@ import StyleIcon from "@mui/icons-material/Style";
 import SharePage from "../components/Common/SharePage";
 
 function Home() {
+  const [count, setCount] = useState(0);
+
   return (
     <>
-      <Navbar />
+      <Navbar count={count} setCount={setCount} />
       <Container maxWidth="xl">
         <Grid container sx={{ height: "calc(100vh - 45px)" }}>
           <Grid item xs={12} md={6} sx={{ height: "100%" }}>
@@ -376,7 +378,12 @@ function Home() {
                 key={data.name}
                 sx={{ display: i <= 3 ? "block" : "none" }}
               >
-                <BookCard data={data} showDiscount={true} />
+                <BookCard
+                  data={data}
+                  showDiscount={true}
+                  count={count}
+                  setCount={setCount}
+                />
               </Grid>
             ))}
           </Grid>
@@ -411,7 +418,7 @@ function Home() {
                 key={data.name}
                 sx={{ display: i >= 4 && i <= 7 ? "block" : "none" }}
               >
-                <BookCard data={data} />
+                <BookCard data={data} count={count} setCount={setCount} />
               </Grid>
             ))}
           </Grid>
